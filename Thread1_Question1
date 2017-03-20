@@ -1,0 +1,16 @@
+package org.kachhepati.assignment.synchronization;
+
+
+public class Thread1 extends Thread{
+	ThreadingSynchronization t;// entity reference
+
+	public Thread1(ThreadingSynchronization t) {
+		
+		this.t = t;
+	}
+	public void run() {
+
+		t.Alphabet();
+	}
+
+}
