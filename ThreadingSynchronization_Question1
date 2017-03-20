@@ -1,0 +1,27 @@
+package org.kachhepati.assignment.synchronization;
+
+public class ThreadingSynchronization {
+	
+
+	
+
+	synchronized void Alphabet() {
+		char[] alpharr = { 'a', 'e', 'i', 'o', 'u' };
+		//String arr="";
+		for (int i = 0; i < alpharr.length; i++) {
+			//arr+=" " + alpharr[i];
+			System.out.print(" " + alpharr[i]);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		//System.out.print(arr);
+	
+
+	}
+
+}
