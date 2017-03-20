@@ -1,0 +1,15 @@
+package org.kachhepati.assignment.synchronization;
+
+public class Test {
+	public static void main(String[] args) {
+		ThreadingSynchronization t = new ThreadingSynchronization();
+		Thread1 v = new Thread1(t);
+
+		Thread2 v1 = new Thread2(t);
+		
+		v.start();
+		
+		v1.start();
+		
+	}
+}
