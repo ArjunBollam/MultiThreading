@@ -1,0 +1,51 @@
+package org.kachhepati.class14.synchorclass;
+
+public class DeadLockDemo {
+	public static void main(String[] args) {
+		final String name1 = "XXXXX";
+		final String name2 = "SSSSS";
+
+		Thread t1 = new Thread() {// anonymous inner class to overide a method
+			public void run() {
+				synchronized (name1) {
+					System.out.println("Thread 1 locked with name1 :  " + name1);
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
+				synchronized (name2) {
+				System.out.println("Thread 1 locked with name2 :  " + name2);
+					
+				}
+			}
+			}
+		};
+
+		Thread t2 = new Thread() {// anonymous inner class to overide a method
+			public void run() {
+				synchronized (name2) {
+					System.out.println("Thread 2 locked with name2 :  " + name2);
+					try {
+						Thread.sleep(600);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
+				synchronized (name1) {
+					System.out.println("Thread 2 locked with name2 :  " + name1);
+					
+				}
+			}
+		}
+		};
+
+		t1.start();
+		t2.start();
+
+	}
+}
+
